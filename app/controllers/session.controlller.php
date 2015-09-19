@@ -10,48 +10,13 @@ $app->get("/logout", function () use ($app) {
 });
 
 $app->get("/login", function () use ($app) {
-	$env = $app->environment();
 
-  $flash = $app->view()->getData('flash');
-
-  $error = '';
-  if (isset($flash['danger'])) {
-     $error = $flash['danger'];
-  }
-
-  $urlRedirect = $env['rootUri'];
-
-  if ($app->request()->get('r') && $app->request()->get('r') != '/logout' && $app->request()->get('r') != '/login') {
-     $_SESSION['urlRedirect'] = $app->request()->get('r');
-  }
 
   if (isset($_SESSION['urlRedirect'])) {
      $urlRedirect = $_SESSION['urlRedirect'];
   }
 
-  $email_value = $email_error = $password_error = '';
-
-  if (isset($flash['email'])) {
-    $email_value = $flash['email'];
-  }
-
-  if (isset($flash['errors']['email'])) {
-     $email_error = $flash['errors']['email'];
-  }
-
-  if (isset($flash['errors']['password'])) {
-     $password_error = $flash['errors']['password'];
-  }
-
-  $app->render('login.html.twig', 
-  	array(
-  		'error' => $error, 
-  		'email_value' => $email_value, 
-  		'email_error' => $email_error, 
-  		'password_error' => $password_error, 
-  		'urlRedirect' => $urlRedirect
-  	)
-	);
+  $app->render('login.html.twig');
 
 });
 
@@ -62,7 +27,7 @@ $app->post("/login", function () use ($app) {
 
 	$post = (object)$app->request()->post();
 
-	$email 		= 	$post->email;
+	$usuario 		= $post->usuario;
 	$password 	=	$post->password;
 
 	$errors = array();
@@ -71,12 +36,12 @@ $app->post("/login", function () use ($app) {
 	*	Logica de login
 	*/
 
-  $user = R::findOne('user',' email = :param ',
-             array(':param' => $email )
+  $user = R::findOne('user',' username = :param ',
+             array(':param' => $usuario )
            );
 
 	  if (!$user) {
-        $errors['email'] = "Email no registrado.";
+        $errors['usuario'] = "Usuario no registrado.";
     } else if (md5($password) != $user->password) {
         $app->flash('email', $email);
         $errors['password'] = "Password incorrecto.";
@@ -84,10 +49,10 @@ $app->post("/login", function () use ($app) {
 
     if (count($errors) > 0) {
         $app->flash('errors', $errors);
-        $app->redirect($env['rootUri'].'login');
+        $app->redirect('/login');
     }
 
-    $_SESSION['user']   = $email;
+    $_SESSION['user']   = $usuario;
     $_SESSION['role']   = $user->role;
     $_SESSION['nombre'] = $user->username;
 
@@ -97,7 +62,7 @@ $app->post("/login", function () use ($app) {
        	$app->redirect($env['rootUri'].substr($tmp,1));
     }
 
-    $app->redirect($env['rootUri']);
+    $app->redirect("/admin");
 
 });
 
