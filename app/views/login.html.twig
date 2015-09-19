@@ -1,0 +1,14 @@
+{% extends "base/bootstrap.html.twig" %}
+
+{% block content %}
+          <h1 class="text-center">{{ app.getName() }}</h1>
+          <p class="small">Hint: user / password</p>
+
+          <form action="login" method="POST">
+            <p>Email: <input type="text" autocomplete="false" name="email" id="email" value="{{ email_value }}" /> 
+            <span class="error">{{ email_error }}</span></p>
+            <p>Password: <input type="password" name="password" id="password" /> 
+            <span class="error">{{ password_error }}</span></p>
+            <p><input type="submit" value="Login" />
+          </form>
+{% endblock content %}

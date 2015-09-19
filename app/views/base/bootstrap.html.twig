@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>{{ app.getName() }}</title>
+		<meta charset="UTF-8">
+		<meta name=description content="">
+		<meta name=viewport content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap CSS -->
+		{% use "base/stylesheets.twig" %}
+		{% block stylesheets %}
+    	{{ parent() }}
+		 
+    	{% endblock stylesheets %}
+	</head>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main">
+					<span class="sr-only">Navegacion</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="./">
+					<div class="logo">
+						<div class="logo-txt">{{ app.getName() }}</div>
+					</div>
+					<!-- <img class="logo" src="{{ assetUri }}img/logo.png"> -->
+				</a>
+			</div>
+		
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-main">
+				<ul class="nav navbar-nav navbar-right">
+					{% if user %}
+						<li class="dropdown navbar-item">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								Hola, {{ user.nombre }} <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="usuario">Mi Cuenta</a></li>
+								<li><a href="usuario/admin/">Administrador</a></li>
+								<li><a href="logout">Logout</a></li>
+							</ul>
+						</li>
+					{% else %}
+						<li class="navbar-item"><a href="login">Login</a></li>
+					{% endif %}
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</nav>
+
+		{% if flash %}
+        	{% include "base/components/flash.twig" %}
+        {% endif %}
+
+        {% block carrousel %}
+        {% endblock carrousel %}
+
+        {% block content %}
+		<h1 class="text-center">Hello World</h1>
+		{% endblock content %}
+
+		{% block footer %}
+	    <footer>
+	       <div class="container">
+	           <div class="row">
+	               <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+	                   <h5>About us</h5>
+	                   <div class="heading-line"></div>
+	                   <div class="heading-line-small"></div>
+	                   <p>Smiles is a simple clean and modern PSD template for corporate/agency, business and portfolio sites. All layers are grouped and well organized - so it's easy to modify. We possess within us two minds.</p>
+	               </div>
+	               <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+	                   <h5>Get in touch</h5>
+	                   <div class="heading-line"></div>
+	                   <div class="heading-line-small"></div>
+	                   <p><span class="glyphicon glyphicon-inbox"></span> hello@smilesagency.com</p>
+	                   <p><span class="glyphicon glyphicon-phone-alt"></span> +555 578 59 45 416</p>
+	                   <p><span class="glyphicon glyphicon-home"></span> 767 Fifth Ave.<br>
+	                    New York, NY 10153</p>
+	               </div>
+	               <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+	                   <h5>Recent posts</h5>
+	                   <div class="heading-line"></div>
+	                   <div class="heading-line-small"></div>
+	                   <p class="f-post-title">So it's easy to modify</p>
+	                   <p class="f-post-date">January 8, 2014</p>
+	                   <p class="f-post-title">So it's easy to modify</p>
+	                   <p class="f-post-date">January 8, 2014</p>
+	                   <p class="f-post-title">So it's easy to modify</p>
+	                   <p class="f-post-date">January 8, 2014</p>
+	               </div>
+	               <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+	                   <h5>Latest works</h5>
+	                   <div class="heading-line"></div>
+	                   <div class="heading-line-small"></div>
+	               </div>
+	           </div>
+	       </div>
+	    </footer>
+	    <div class="copyright">
+	        <div class="container">
+	            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	                <p>© TEC de Monterrey | Desarrollado por <a target="new" href="http://socialsystemsmx.com">SocialSystems</a></p>
+	            </div>
+	            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	                <ul>
+	                    <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+	                    <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+	                    <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+		{% endblock footer %}
+
+		<!-- jQuery && Bootstrap JavaScript -->
+		{% use "base/javascripts.twig" %}
+		{% block javascripts %}
+			{{ parent() }}
+    	{% endblock javascripts %}
+	</body>
+</html>
