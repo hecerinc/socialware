@@ -15,14 +15,14 @@
 // Instantiate application
 $app = new \Slim\Slim(require_once ROOT . 'app/config/app.php');
 //Nombre del sitio:
-$app->setName('Site-Template');
+$app->setName('AMA');
 
 
 // For native PHP session
 session_cache_limiter(false);
 session_start();
 
-// For encrypted cookie session 
+// For encrypted cookie session
 //*/
 $app->add(new \Slim\Middleware\SessionCookie(array(
             'expires' => '20 minutes',
@@ -67,7 +67,7 @@ $authenticate = function ($app, $role) {
 
 
 //crea variable $user y se la agrega a todos los views para facil deteccion de sesiones
-$app->hook('slim.before.dispatch', function() use ($app) { 
+$app->hook('slim.before.dispatch', function() use ($app) {
    $user = Array();
    if (isset($_SESSION['user'])) {
         $user['email']=$_SESSION['user'];
@@ -104,7 +104,7 @@ foreach(glob(ROOT . 'app/controllers/*.php') as $router) {
 | Configure Twig
 |--------------------------------------------------------------------------
 |
-| The application uses Twig as its template engine. This script configures 
+| The application uses Twig as its template engine. This script configures
 | the template paths and adds some extensions.
 |
 */
@@ -137,9 +137,9 @@ require_once ROOT . 'app/config/database.php';
 // Disable fluid mode in production environment
 $app->configureMode(SLIM_MODE_PRO, function () use ($app) {
     // note, transactions will be auto-committed in fluid mode
-    R::freeze(true);  
+    R::freeze(true);
 });
-      
+
 
 /*
 |--------------------------------------------------------------------------
