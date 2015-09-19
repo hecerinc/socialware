@@ -44,7 +44,7 @@ $app->post("/login", function () use ($app) {
         $errors['usuario'] = "Usuario no registrado.";
     } else if (md5($password) != $user->password) {
         $app->flash('email', $email);
-        $errors['password'] = "Password incorrecto.";
+        $errors['password'] = "Contraseña incorrecto.";
     }
 
     if (count($errors) > 0) {
