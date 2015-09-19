@@ -2,14 +2,14 @@
 
 //GET routes
 
-$app->get("/logout", function () use ($app) {
+$app->get("/Logout", function () use ($app) {
   $env = $app->environment();
  	unset($_SESSION['user']);
  	$app->view()->setData('user', null);
  	$app->redirect($env['rootUri']);
 });
 
-$app->get("/login", function () use ($app) {
+$app->get("/Login", function () use ($app) {
 
 
   if (isset($_SESSION['urlRedirect'])) {
@@ -22,7 +22,7 @@ $app->get("/login", function () use ($app) {
 
 //POST routes
 
-$app->post("/login", function () use ($app) {
+$app->post("/Login", function () use ($app) {
 	$env = $app->environment();
 
 	$post = (object)$app->request()->post();
