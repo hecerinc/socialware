@@ -49,7 +49,7 @@ $app->post("/Login", function () use ($app) {
 
     if (count($errors) > 0) {
         $app->flash('errors', $errors);
-        $app->redirect('/login');
+        $app->redirect('/Login');
     }
 
     $_SESSION['user']   = $usuario;
