@@ -2,14 +2,14 @@
 
 //GET routes
 
-$app->get("/Logout", function () use ($app) {
+$app->get("/logout", function () use ($app) {
   $env = $app->environment();
  	unset($_SESSION['user']);
  	$app->view()->setData('user', null);
  	$app->redirect($env['rootUri']);
 });
 
-$app->get("/Login", function () use ($app) {
+$app->get("/login", function () use ($app) {
 
 
   if (isset($_SESSION['urlRedirect'])) {
@@ -22,7 +22,7 @@ $app->get("/Login", function () use ($app) {
 
 //POST routes
 
-$app->post("/Login", function () use ($app) {
+$app->post("/login", function () use ($app) {
 	$env = $app->environment();
 
 	$post = (object)$app->request()->post();
@@ -49,21 +49,22 @@ $app->post("/Login", function () use ($app) {
 
     if (count($errors) > 0) {
         $app->flash('errors', $errors);
-        $app->redirect('/Login');
+        $app->redirect('/login');
     }
+    else{
 
-    $_SESSION['user']   = $usuario;
-    $_SESSION['role']   = $user->role;
-    $_SESSION['nombre'] = $user->username;
+      $_SESSION['user']   = $usuario;
+      $_SESSION['role']   = $user->role;
+      $_SESSION['nombre'] = $user->username;
 
-  	if (isset($_SESSION['urlRedirect'])) {
-       	$tmp = $_SESSION['urlRedirect'];
-       	unset($_SESSION['urlRedirect']);
-       	$app->redirect($env['rootUri'].substr($tmp,1));
+    	if (isset($_SESSION['urlRedirect'])) {
+         	$tmp = $_SESSION['urlRedirect'];
+         	unset($_SESSION['urlRedirect']);
+         	$app->redirect($env['rootUri'].substr($tmp,1));
+      }
+
+      $app->redirect("/admin");
     }
-
-    $app->redirect("/admin");
-
 });
 
 ?>

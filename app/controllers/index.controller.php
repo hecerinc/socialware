@@ -5,7 +5,7 @@ $app->get('/', function () use ($app) {
    $app->render('index.html.twig');
 });
 
-$app->get('/AcercaDe', function () use ($app) {
+$app->get('/acercade', function () use ($app) {
    $app->render('acercade.html.twig');
 });
 
