@@ -23,19 +23,17 @@ session_cache_limiter(false);
 session_start();
 
 // For encrypted cookie session
-//*/
 $app->add(new \Slim\Middleware\SessionCookie(array(
-            'expires' => '20 minutes',
-            'path' => '/',
-            'domain' => null,
-            'secure' => false,
-            'httponly' => false,
-            'name' => 'app_session_name',
-            'secret' => md5('site-template'),
-            'cipher' => MCRYPT_RIJNDAEL_256,
-            'cipher_mode' => MCRYPT_MODE_CBC
-        )));
-//*/
+	'expires' => '20 minutes',
+	'path' => '/',
+	'domain' => null,
+	'secure' => false,
+	'httponly' => false,
+	'name' => 'app_session_name',
+	'secret' => md5('site-template'),
+	'cipher' => MCRYPT_RIJNDAEL_256,
+	'cipher_mode' => MCRYPT_MODE_CBC
+)));
 
 /*
 |--------------------------------------------------------------------------
@@ -50,19 +48,19 @@ $app->add(new \Slim\Middleware\SessionCookie(array(
 */
 
 $authenticate = function ($app, $role) {
-    return function () use ($app, $role) {
-        $env = $app->environment();
-        if (!isset($_SESSION['user'])) {
-            $_SESSION['urlRedirect'] = $app->request()->getPathInfo();
-            $app->flash('danger', 'Necesitas iniciar sesion.');
-            $app->redirect($env['rootUri'].'login');
-        }else if($role == 'admin'){
-            if($_SESSION['role']!='admin'){
-                $app->flash('danger', 'Necesitas iniciar sesion como administrador.');
-                $app->redirect($env['rootUri']);
-            }
-        }
-    };
+	return function () use ($app, $role) {
+		$env = $app->environment();
+		if (!isset($_SESSION['user'])) {
+			$_SESSION['urlRedirect'] = $app->request()->getPathInfo();
+			$app->flash('danger', 'Necesitas iniciar sesion.');
+			$app->redirect($env['rootUri'].'login');
+		}else if($role == 'admin'){
+			if($_SESSION['role']!='admin'){
+				$app->flash('danger', 'Necesitas iniciar sesion como administrador.');
+				$app->redirect($env['rootUri']);
+			}
+		}
+	};
 };
 
 
@@ -70,8 +68,8 @@ $authenticate = function ($app, $role) {
 $app->hook('slim.before.dispatch', function() use ($app) {
    $user = Array();
    if (isset($_SESSION['user'])) {
-        $user['email']=$_SESSION['user'];
-        $user['nombre']=$_SESSION['nombre'];
+		$user['email']=$_SESSION['user'];
+		$user['nombre']=$_SESSION['nombre'];
    }
    $app->view()->setData('user', $user);
 });
@@ -111,10 +109,10 @@ foreach(glob(ROOT . 'app/controllers/*.php') as $router) {
 
 $view = $app->view();
 $view->parserOptions = array(
-    'debug' => true,
-    'cache' => ROOT . 'app/storage/cache/twig',
-    'auto_reload' => true,
-    //'strict_variables' => true
+	'debug' => true,
+	'cache' => ROOT . 'app/storage/cache/twig',
+	'auto_reload' => true,
+	//'strict_variables' => true
 );
 
 
@@ -136,8 +134,8 @@ require_once ROOT . 'app/config/database.php';
 
 // Disable fluid mode in production environment
 $app->configureMode(SLIM_MODE_PRO, function () use ($app) {
-    // note, transactions will be auto-committed in fluid mode
-    R::freeze(true);
+	// note, transactions will be auto-committed in fluid mode
+	R::freeze(true);
 });
 
 

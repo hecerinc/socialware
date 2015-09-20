@@ -55,12 +55,16 @@ class Twig extends \Slim\View
      * @var array The options for the Twig environment, see
      * http://www.twig-project.org/book/03-Twig-for-Developers
      */
-    public static $twigOptions = array();
+    public static $twigOptions = array(
+        'debug'=>true
+    );
 
     /**
      * @var TwigExtension The Twig extensions you want to load
      */
-    public static $twigExtensions = array();
+    public static $twigExtensions = array(
+    	Twig_Extension_Debug
+    );
 
     /**
      * @var TwigEnvironment The Twig environment for rendering templates.
@@ -122,6 +126,7 @@ class Twig extends \Slim\View
                 $loader,
                 self::$twigOptions
             );
+            // $this->twigEnvironment->addExtension(new \Twig_Extension_Debug());
 
             // Check for Composer Package Autoloader class loading
             if (!class_exists('\Twig_Extensions_Autoloader')) {

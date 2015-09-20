@@ -13,5 +13,5 @@
 {% endif %}
 
 {% if flash.errors %}
-    {{ alert(flash.errors, 'error') }}
+	{{ dump(flash.errors) }}
 {% endif %}
