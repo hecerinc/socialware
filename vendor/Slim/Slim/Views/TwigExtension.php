@@ -33,7 +33,6 @@
 namespace Slim\Views;
 
 use Slim\Slim;
-
 class TwigExtension extends \Twig_Extension
 {
     public function getName()

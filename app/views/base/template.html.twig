@@ -13,30 +13,28 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 </head>
 <body>
-	{% block nav %}
 
-	<nav>
-		<div class="nav-wrapper">
-			<a href="/" class="brand-logo">AMA</a>
+	{% block nav %}
+	<nav class="light-blue lighten" role="navigation">
+		<div class="nav-wrapper container">
+			<a href="{{ urlFor('home') }}" class="brand-logo">AMA</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="acercaDe">Acerca De</a></li>
-				<li><a href="noticias">Noticias</a></li>
-				<li><a href="juegos">Juegos</a></li>
-				<li><a href="videos">Videos</a></li>
-				<li><a href="login">Login</a></li>
+				<li><a href="{{ urlFor('aboutUs') }}">Acerca De</a></li>
+				<li><a href="{{ urlFor('news') }}">Noticias</a></li>
+				<li><a href="{{ urlFor('games') }}">Juegos</a></li>
+				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
+				<li><a href="{{ urlFor('login') }}">Iniciar Sesi&oacute;n</a></li>
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
-				<li><a href="acercade">Acerca De</a></li>
-				<li><a href="noticias">Noticias</a></li>
-				<li><a href="juegos">Juegos</a></li>
-				<li><a href="videos">Videos</a></li>
-				<li><a href="login">Login</a></li>
+				<li><a href="{{ urlFor('aboutUs') }}">Acerca De</a></li>
+				<li><a href="{{ urlFor('news') }}">Noticias</a></li>
+				<li><a href="{{ urlFor('games') }}">Juegos</a></li>
+				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
+				<li><a href="{{ urlFor('login') }}">Iniciar Sesi&oacute;n</a></li>
 			</ul>
 		</div>
 	</nav>
-
-
 	{% endblock nav %}
 
 
@@ -46,7 +44,7 @@
 
 	{% block footer %}
 
-		<footer class="page-footer">
+		<footer class="page-footer light-blue lighten">
 			<div class="container">
 				<div class="row">
 					<div class="col l6 s12">

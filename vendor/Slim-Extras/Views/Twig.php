@@ -63,7 +63,8 @@ class Twig extends \Slim\View
      * @var TwigExtension The Twig extensions you want to load
      */
     public static $twigExtensions = array(
-    	Twig_Extension_Debug
+    	Twig_Extension_Debug,
+    	Twig_Extensions_Slim
     );
 
     /**

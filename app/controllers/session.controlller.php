@@ -10,15 +10,11 @@ $app->get("/logout", function () use ($app) {
 });
 
 $app->get("/login", function () use ($app) {
-
-
 	if (isset($_SESSION['urlRedirect'])) {
 		$urlRedirect = $_SESSION['urlRedirect'];
 	}
-
 	$app->render('login.html.twig');
-
-});
+})->name('login');
 
 //POST routes
 

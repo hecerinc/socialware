@@ -17,7 +17,6 @@ $app = new \Slim\Slim(require_once ROOT . 'app/config/app.php');
 //Nombre del sitio:
 $app->setName('AMA');
 
-
 // For native PHP session
 session_cache_limiter(false);
 session_start();
@@ -40,7 +39,7 @@ $app->add(new \Slim\Middleware\SessionCookie(array(
 | Autenticacion de usuarios
 |--------------------------------------------------------------------------
 |
-| Funcion $authentitace
+| Funcion $authenticate
 | Recibe:  $app, $role
 |   $app:  SLIM $app
 |   $role: El role o nivel del usuario
