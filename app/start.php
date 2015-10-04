@@ -65,32 +65,34 @@ $authenticate = function ($app, $role) {
 
 //crea variable $user y se la agrega a todos los views para facil deteccion de sesiones
 $app->hook('slim.before.dispatch', function() use ($app) {
-   $user = Array();
-   if (isset($_SESSION['user'])) {
+	$user = Array();
+	if (isset($_SESSION['user'])) {
 		$user['email']=$_SESSION['user'];
 		$user['nombre']=$_SESSION['nombre'];
-   }
-   $app->view()->setData('user', $user);
+	}
+	$app->view()->setData('user', $user);
 });
 
 /*
  * SET some globally available view data
  */
 $resourceUri = $_SERVER['REQUEST_URI'];
-//Uri del sitio desde el root del dominio
+//URI del sitio desde el root del dominio
 $rootUri = '/';
-//Uri de los contenidos publicos
+//URI de los contenidos publicos
 $assetUri = $rootUri.'web/';
 
 $env = $app->environment();
 $env['rootUri'] = $rootUri;
 
 $app->view()->appendData(
-		array(		'app' => $app,
-				'rootUri' => $rootUri,
-				'assetUri' => $assetUri,
-				'resourceUri' => $resourceUri
-));
+	array(
+		'app' => $app,
+		'rootUri' => $rootUri,
+		'assetUri' => $assetUri,
+		'resourceUri' => $resourceUri
+	)
+);
 
 foreach(glob(ROOT . 'app/controllers/*.php') as $router) {
 	include $router;

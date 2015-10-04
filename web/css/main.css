@@ -1,4 +1,199 @@
 /* CSS de la aplicacion */
-.text-center{
-  text-align: center;
+@charset  'utf-8';
+body{
+	font-family: 'Open Sans', sans-serif;
 }
+
+/* Videos */
+.video *{
+	transition: all 300ms;
+	-moz-transition: all 300ms;
+	-webkit-transition: all 300ms;
+	-o-transition: all 300ms;
+}
+.video:hover i{
+	opacity: 1;
+}
+.video, .video *{
+	cursor:pointer;
+}
+.video:hover .caption{
+	background-color:rgba(1,87,155, 1);;
+}
+.video-entry{
+	height: 200px;
+	color: #fff;
+}
+figure{
+	margin: 0;
+}
+.video-entry i{
+	opacity:.7;
+}
+.video .caption{
+	margin: 0;
+	background:rgba(1,87,155, .7);
+	padding: 10px;
+	position: relative;
+	top: -42px;
+}
+.text-center{
+	text-align: center;
+}
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+.h20px{height: 20px;}
+.h40px{height: 40px;}
+.h60px{height: 60px;}
+.h80px{height: 80px;}
+.u-full-width{width: 100%;}
+/* Margins */
+.m0{
+	margin:0 !important;
+}
+.mb0 {
+  margin-bottom: 0px; }
+
+.mt0 {
+  margin-top: 0px; }
+
+.mr0 {
+  margin-right: 0px; }
+
+.ml0 {
+  margin-left: 0px; }
+
+.mb10 {
+  margin-bottom: 10px; }
+
+.mt10 {
+  margin-top: 10px; }
+
+.mr10 {
+  margin-right: 10px; }
+
+.ml10 {
+  margin-left: 10px; }
+
+.mb20 {
+  margin-bottom: 20px; }
+
+.mt20 {
+  margin-top: 20px; }
+
+.mr20 {
+  margin-right: 20px; }
+
+.ml20 {
+  margin-left: 20px; }
+
+.mb30 {
+  margin-bottom: 30px; }
+
+.mt30 {
+  margin-top: 30px; }
+
+.mr30 {
+  margin-right: 30px; }
+
+.ml30 {
+  margin-left: 30px; }
+
+.mb40 {
+  margin-bottom: 40px; }
+
+.mt40 {
+  margin-top: 40px; }
+
+.mr40 {
+  margin-right: 40px; }
+
+.ml40 {
+  margin-left: 40px; }
+
+.mb50 {
+  margin-bottom: 50px; }
+
+.mt50 {
+  margin-top: 50px; }
+
+.mr50 {
+  margin-right: 50px; }
+
+.ml50 {
+  margin-left: 50px; }
+
+.mb60 {
+  margin-bottom: 60px; }
+
+.mt60 {
+  margin-top: 60px; }
+
+.mr60 {
+  margin-right: 60px; }
+
+.ml60 {
+  margin-left: 60px; }
+
+.mb70 {
+  margin-bottom: 70px; }
+
+.mt70 {
+  margin-top: 70px; }
+
+.mr70 {
+  margin-right: 70px; }
+
+.ml70 {
+  margin-left: 70px; }
+
+.mb80 {
+  margin-bottom: 80px; }
+
+.mt80 {
+  margin-top: 80px; }
+
+.mr80 {
+  margin-right: 80px; }
+
+.ml80 {
+  margin-left: 80px; }
+
+.mb90 {
+  margin-bottom: 90px; }
+
+.mt90 {
+  margin-top: 90px; }
+
+.mr90 {
+  margin-right: 90px; }
+
+.ml90 {
+  margin-left: 90px; }
+
+.mb100 {
+  margin-bottom: 100px; }
+
+.mt100 {
+  margin-top: 100px; }
+
+.mr100 {
+  margin-right: 100px; }
+
+.ml100 {
+  margin-left: 100px; }
+
+/* Self Clearing Goodness */
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both; }
+

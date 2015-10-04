@@ -1,0 +1,26 @@
+{% extends "base/template.html.twig" %}
+{% block content %}
+{% include 'base/components/flash.twig' %}
+
+<div class="container mb80">
+	<h1>&mdash;&mdash; Noticias</h1>
+	<div class="clear h20px"></div>
+	<div class="w80p">
+		{%  for i in range(1,4) %}
+			<div class="row">
+				<article class="u-cf section noticia">
+					<div class="col s3">
+						<a href="#"><img class="responsive-img" src="http://lorempixel.com/300/200" alt="Image title"></a>
+					</div>
+					<div class="col s9">
+							<h4 class="mt0"><a href="#">T&iacute;tulo de la noticia</a></h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nobis veritatis officiis! Praesentium minima eum ipsam tempore sapiente exercitationem corporis saepe labore amet, dicta nesciunt quia quibusdam iusto, temporibus quo, veritatis. Consectetur facere porro aut laudantium atque explicabo blanditiis, natus dolor, doloribus et rem quo quibusdam repellat dignissimos sed beatae.</p>
+							<a href="#" class="read-more">Ver m&aacute;s</a>
+					</div>
+				</article>
+				<div class="divider"></div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock content %}

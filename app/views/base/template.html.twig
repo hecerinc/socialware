@@ -3,11 +3,13 @@
 <head>
 	<title>{{ app.getName() }}</title>
 	<meta charset="UTF-8">
+
 	<!--Import materialize.css-->
 	{% use "base/stylesheets.twig" %}
 	{% block stylesheets %}
 		{{ parent() }}
 	{% endblock stylesheets %}
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
@@ -20,18 +22,18 @@
 			<a href="{{ urlFor('home') }}" class="brand-logo">AMA</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="{{ urlFor('aboutUs') }}">Acerca De</a></li>
+				<li><a href="{{ urlFor('aboutUs') }}">Acerca de</a></li>
 				<li><a href="{{ urlFor('news') }}">Noticias</a></li>
 				<li><a href="{{ urlFor('games') }}">Juegos</a></li>
 				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
-				<li><a href="{{ urlFor('login') }}">Iniciar Sesi&oacute;n</a></li>
+				<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
-				<li><a href="{{ urlFor('aboutUs') }}">Acerca De</a></li>
+				<li><a href="{{ urlFor('aboutUs') }}">Acerca de</a></li>
 				<li><a href="{{ urlFor('news') }}">Noticias</a></li>
 				<li><a href="{{ urlFor('games') }}">Juegos</a></li>
 				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
-				<li><a href="{{ urlFor('login') }}">Iniciar Sesi&oacute;n</a></li>
+				<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -64,7 +66,7 @@
 			</div>
 			<div class="footer-copyright">
 				<div class="container">
-				© 2014 Copyright Text
+				&copy; 2015 Copyright Text
 				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
 				</div>
 			</div>
