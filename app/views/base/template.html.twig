@@ -73,7 +73,7 @@
             </div>
           </div>
         </footer>
-            
+
       {% endblock footer %}
 			<!-- jQuery && Materialize JavaScript -->
 			{% use "base/javascripts.twig" %}
@@ -84,7 +84,7 @@
         $(document).ready(function(){
 
             $(".button-collapse").sideNav();
-            $('.slider').slider();
+            $('.slider').slider({full_width: true});
 
         });
       </script>
