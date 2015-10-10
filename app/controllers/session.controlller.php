@@ -48,7 +48,7 @@ $app->post("/login", function () use ($app) {
 	}
 	else{
 
-		$_SESSION['user']   = $usuario;
+		$_SESSION['user']   = $user;
 		$_SESSION['role']   = $user->role;
 		$_SESSION['nombre'] = $user->username;
 

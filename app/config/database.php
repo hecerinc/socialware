@@ -3,7 +3,7 @@
  * Configuracion de la base de datos
  */
  //*/
-R::setup('mysql:host=107.170.77.212;dbname=socialware', // host|ip; nombre de la base de datos
+R::setup('mysql:host=localhost;dbname=socialware', // host|ip; nombre de la base de datos
          'socialware', //user
          '123456'); //password
          //mysql

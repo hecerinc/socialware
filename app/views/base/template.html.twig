@@ -26,14 +26,18 @@
 				<li><a href="{{ urlFor('news') }}">Noticias</a></li>
 				<li><a href="{{ urlFor('games') }}">Juegos</a></li>
 				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
-				<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
+				{% if not user %}
+					<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
+				{% endif %}
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
 				<li><a href="{{ urlFor('aboutUs') }}">Acerca de</a></li>
 				<li><a href="{{ urlFor('news') }}">Noticias</a></li>
 				<li><a href="{{ urlFor('games') }}">Juegos</a></li>
 				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
-				<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
+				{% if not user %}
+					<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
+				{% endif %}
 			</ul>
 		</div>
 	</nav>
