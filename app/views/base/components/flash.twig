@@ -11,3 +11,7 @@
 {% if flash.info %}
 	{{ alert(flash.info, 'info') }}
 {% endif %}
+
+{% if flash.errors %}
+	{{ dump(flash.errors) }}
+{% endif %}

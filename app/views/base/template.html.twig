@@ -1,92 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ app.getName() }}</title>
+	<meta charset="UTF-8">
 
-  <!DOCTYPE html>
-  <html>
-    <head>
-			<title>{{ app.getName() }}</title>
-			<meta charset="UTF-8">
-      <!--Import materialize.css-->
-			{% use "base/stylesheets.twig" %}
-			{% block stylesheets %}
-	    	{{ parent() }}
-    	{% endblock stylesheets %}
+	<!--Import materialize.css-->
+	{% use "base/stylesheets.twig" %}
+	{% block stylesheets %}
+		{{ parent() }}
+	{% endblock stylesheets %}
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-    </head>
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+</head>
+<body>
 
-    <body>
-			{% block nav %}
-
-      <nav>
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo">AMA</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="/AcercaDe">Acerca De</a></li>
-            <li><a href="/Noticias">Noticias</a></li>
-            <li><a href="/Juegos">Juegos</a></li>
-            <li><a href="/Videos">Videos</a></li>
-            <li><a href="/Login">Login</a></li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li><a href="/AcercaDe">Acerca De</a></li>
-            <li><a href="/Noticias">Noticias</a></li>
-            <li><a href="/Juegos">Juegos</a></li>
-            <li><a href="/Videos">Videos</a></li>
-            <li><a href="/Login">Login</a></li>
-          </ul>
-        </div>
-      </nav>
-
-
-			{% endblock nav %}
+	{% block nav %}
+	<nav class="light-blue lighten" role="navigation">
+		<div class="nav-wrapper container">
+			<a href="{{ urlFor('home') }}" class="brand-logo">AMA</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="{{ urlFor('aboutUs') }}">Acerca de</a></li>
+				<li><a href="{{ urlFor('news') }}">Noticias</a></li>
+				<li><a href="{{ urlFor('games') }}">Juegos</a></li>
+				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
+				<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
+			</ul>
+			<ul class="side-nav" id="mobile-demo">
+				<li><a href="{{ urlFor('aboutUs') }}">Acerca de</a></li>
+				<li><a href="{{ urlFor('news') }}">Noticias</a></li>
+				<li><a href="{{ urlFor('games') }}">Juegos</a></li>
+				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
+				<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
+			</ul>
+		</div>
+	</nav>
+	{% endblock nav %}
 
 
-			{% block content %}
+	{% block content %}
 
-			{% endblock content %}
+	{% endblock content %}
 
-      {% block footer %}
+	{% block footer %}
 
-        <footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-          </div>
-        </footer>
+		<footer class="page-footer light-blue lighten">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">Footer Content</h5>
+						<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<h5 class="white-text">Links</h5>
+						<ul>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+				&copy; 2015 Copyright Text
+				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+				</div>
+			</div>
+		</footer>
 
-      {% endblock footer %}
-			<!-- jQuery && Materialize JavaScript -->
-			{% use "base/javascripts.twig" %}
-			{% block javascripts %}
-				{{ parent() }}
-	    {% endblock javascripts %}
-      <script>
-        $(document).ready(function(){
-
-            $(".button-collapse").sideNav();
-            $('.slider').slider({full_width: true});
-
-        });
-      </script>
-    </body>
-  </html>
+	{% endblock footer %}
+	<!-- jQuery && Materialize JavaScript -->
+	{% use "base/javascripts.twig" %}
+	{% block javascripts %}
+		{{ parent() }}
+	{% endblock javascripts %}
+	<script>
+		$(document).ready(function(){
+			$(".button-collapse").sideNav();
+			$('.slider').slider();
+		});
+	</script>
+</body>
+</html>
