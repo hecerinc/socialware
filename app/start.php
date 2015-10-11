@@ -14,12 +14,13 @@
 
 // Instantiate application
 $app = new \Slim\Slim(require_once ROOT . 'app/config/app.php');
-//Nombre del sitio:
+
+// Nombre del sitio:
 $app->setName('AMA');
 
 // For native PHP session
-session_cache_limiter(false);
-session_start();
+// session_cache_limiter(false);
+// session_start();
 
 // For encrypted cookie session
 $app->add(new \Slim\Middleware\SessionCookie(array(
@@ -65,7 +66,7 @@ $authenticate = function ($app, $role) {
 
 //crea variable $user y se la agrega a todos los views para facil deteccion de sesiones
 $app->hook('slim.before.dispatch', function() use ($app) {
-	$user = Array();
+	$user = array();
 	if (isset($_SESSION['user'])) {
 		$user['email']=$_SESSION['user'];
 		$user['nombre']=$_SESSION['nombre'];
@@ -94,6 +95,8 @@ $app->view()->appendData(
 	)
 );
 
+
+// Import the routers
 foreach(glob(ROOT . 'app/controllers/*.php') as $router) {
 	include $router;
 }

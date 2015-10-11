@@ -5,7 +5,7 @@
 | Autoloader de vendor
 |--------------------------------------------------------------------------
 |
-| El autoloader de vendor carga las librerias externas para uso del 
+| El autoloader de vendor carga las librerias externas para uso del
 | framework
 |
 */
@@ -24,14 +24,14 @@ require ROOT . 'vendor/autoload.php';
 
 // Autoloader to load classes in /app/models/
 spl_autoload_register(function ($class) {
-            if (0 !== strpos($class, 'Model_')) {
-                return;
-            }
+	if (0 !== strpos($class, 'Model_')) {
+		return;
+	}
 
-            if (is_file($file = ROOT . 'app/models/' . $class . '.php')) {
-                require $file;
-            }
-        });
+	if (is_file($file = ROOT . 'app/models/' . $class . '.php')) {
+		require $file;
+	}
+});
 
-        
+
 ?>
