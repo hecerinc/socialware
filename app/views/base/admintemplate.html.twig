@@ -1,0 +1,122 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+			<title>{{ app.getName() }}</title>
+			<meta charset="UTF-8">
+      <!--Import materialize.css-->
+			{% use "base/adminstylesheets.twig" %}
+			{% block stylesheets %}
+	    	{{ parent() }}
+    	{% endblock stylesheets %}
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+    <header>
+      {% block nav %}
+        <div class="navbar-fixed">
+            <nav class="cyan">
+                <div class="nav-wrapper">                    
+                    
+                    <ul class="left">                      
+                      <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="Eventos"></a> <span class="logo-text">Materialize</span></h1></li>
+                    </ul>
+                    <div class="header-search-wrapper hide-on-med-and-down">
+                        <i class="mdi-action-search active"></i>
+                        <input name="Search" class="header-search-input z-depth-2" placeholder="Explorar Eventos" type="text">
+                    </div>
+                    <ul class="right hide-on-med-and-down">                        
+                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-navigation-apps"></i></a>
+                        </li>                        
+                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-social-notifications"></i></a>
+                        </li>                        
+                        <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+			{% endblock nav %}
+    </header>
+    {% block body %}
+    <body>
+    {% endblock body %}
+    {% block sidebar %}
+    <div id="main">
+    <aside id="left-sidebar-nav">
+                <ul style="width: 240px;" id="slide-out" class="side-nav fixed leftside-navigation ps-container ps-active-y">
+                    <li class="user-details cyan darken-2">
+                        <div class="row">
+                            <div class="col col s4 m4 l4">
+                                <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                            </div>
+                            <div class="col col s8 m8 l8">
+                                
+                                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">John Doe<i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
+                                    <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
+                                    </li>
+                                    <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                    </li>
+                                </ul>
+                                <p class="user-roal">Administrator</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bold active"><a href="index.html" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li class="bold"><a href="app-email.html" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Mailbox <span class="new badge">4</span></a>
+                    </li>
+                    <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Calender</a>
+                    </li>
+                    
+                    <li class="li-hover"><div class="divider"></div></li>
+                    <li class="li-hover"><p class="ultra-small margin more-text">MORE</p></li>
+                    <li><a href="css-grid.html"><i class="mdi-image-grid-on"></i> Grid</a>
+                    </li>
+                    <li><a href="css-color.html"><i class="mdi-editor-format-color-fill"></i> Color</a>
+                    </li>
+                    <li><a href="css-helpers.html"><i class="mdi-communication-live-help"></i> Helpers</a>
+                    </li>
+                    <li><a href="changelogs.html"><i class="mdi-action-swap-vert-circle"></i> Changelogs</a>
+                    </li>                    
+                    <li class="li-hover"><div class="divider"></div></li>
+                    <li class="li-hover"><p class="ultra-small margin more-text">Daily Sales</p></li>
+                    <li class="li-hover">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="sample-chart-wrapper">                            
+                                    <div class="ct-chart ct-golden-section" id="ct2-chart"><svg style="width: 100%; height: 100%;" class="ct-chart-line" height="100%" width="100%" xmlns:ct="http://gionkunz.github.com/chartist-js/ct"><g class="ct-labels"><foreignObject height="30" width="21" y="104" x="45" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-horizontal">1</span></foreignObject><foreignObject height="30" width="21" y="104" x="66" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-horizontal">2</span></foreignObject><foreignObject height="30" width="21" y="104" x="87" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-horizontal">3</span></foreignObject><foreignObject height="30" width="21" y="104" x="108" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-horizontal">4</span></foreignObject><foreignObject height="30" width="21" y="104" x="129" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-horizontal">5</span></foreignObject><foreignObject height="30" width="21" y="104" x="150" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-horizontal">6</span></foreignObject><foreignObject height="30" width="21" y="104" x="171" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-horizontal">7</span></foreignObject><foreignObject height="30" width="21" y="104" x="192" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-horizontal">8</span></foreignObject><foreignObject width="40" height="20.88888888888889" x="-5" y="84" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-vertical">0</span></foreignObject><foreignObject width="40" height="20.88888888888889" x="-5" y="66.9090909090909" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-vertical">2</span></foreignObject><foreignObject width="40" height="20.88888888888889" x="-5" y="49.81818181818181" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-vertical">4</span></foreignObject><foreignObject width="40" height="20.88888888888889" x="-5" y="32.72727272727273" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-vertical">6</span></foreignObject><foreignObject width="40" height="20.88888888888889" x="-5" y="15.63636363636364" style="overflow: visible;"><span xmlns="http://www.w3.org/1999/xhtml" class="ct-label ct-vertical">8</span></foreignObject></g><g class="ct-grids"><line class="ct-grid ct-horizontal" y2="99" y1="5" x2="45" x1="45"></line><line class="ct-grid ct-horizontal" y2="99" y1="5" x2="66" x1="66"></line><line class="ct-grid ct-horizontal" y2="99" y1="5" x2="87" x1="87"></line><line class="ct-grid ct-horizontal" y2="99" y1="5" x2="108" x1="108"></line><line class="ct-grid ct-horizontal" y2="99" y1="5" x2="129" x1="129"></line><line class="ct-grid ct-horizontal" y2="99" y1="5" x2="150" x1="150"></line><line class="ct-grid ct-horizontal" y2="99" y1="5" x2="171" x1="171"></line><line class="ct-grid ct-horizontal" y2="99" y1="5" x2="192" x1="192"></line><line class="ct-grid ct-vertical" x2="213" x1="45" y2="99" y1="99"></line><line class="ct-grid ct-vertical" x2="213" x1="45" y2="81.9090909090909" y1="81.9090909090909"></line><line class="ct-grid ct-vertical" x2="213" x1="45" y2="64.81818181818181" y1="64.81818181818181"></line><line class="ct-grid ct-vertical" x2="213" x1="45" y2="47.72727272727273" y1="47.72727272727273"></line><line class="ct-grid ct-vertical" x2="213" x1="45" y2="30.63636363636364" y1="30.63636363636364"></line></g><g class="ct-series ct-series-a"><path ct:values="5,9,7,8,5,3,5,4" class="ct-area" d="M45,99L45,56.273C48.5,50.576,59,24.939,66,22.091C73,19.242,80,37.758,87,39.182C94,40.606,101,27.788,108,30.636C115,33.485,122,49.152,129,56.273C136,63.394,143,73.364,150,73.364C157,73.364,164,57.697,171,56.273C178,54.848,188.5,63.394,192,64.818L192,99"></path><path ct:values="5,9,7,8,5,3,5,4" class="ct-line" d="M45,56.273C48.5,50.576,59,24.939,66,22.091C73,19.242,80,37.758,87,39.182C94,40.606,101,27.788,108,30.636C115,33.485,122,49.152,129,56.273C136,63.394,143,73.364,150,73.364C157,73.364,164,57.697,171,56.273C178,54.848,188.5,63.394,192,64.818"></path><line ct:value="5" class="ct-point" y2="56.27272727272727" x2="45.01" y1="56.27272727272727" x1="45"></line><line ct:value="9" class="ct-point" y2="22.090909090909093" x2="66.01" y1="22.090909090909093" x1="66"></line><line ct:value="7" class="ct-point" y2="39.18181818181818" x2="87.01" y1="39.18181818181818" x1="87"></line><line ct:value="8" class="ct-point" y2="30.63636363636364" x2="108.01" y1="30.63636363636364" x1="108"></line><line ct:value="5" class="ct-point" y2="56.27272727272727" x2="129.01" y1="56.27272727272727" x1="129"></line><line ct:value="3" class="ct-point" y2="73.36363636363636" x2="150.01" y1="73.36363636363636" x1="150"></line><line ct:value="5" class="ct-point" y2="56.27272727272727" x2="171.01" y1="56.27272727272727" x1="171"></line><line ct:value="4" class="ct-point" y2="64.81818181818181" x2="192.01" y1="64.81818181818181" x1="192"></line></g></svg></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <div style="left: 0px; bottom: 3px;" class="ps-scrollbar-x-rail"><div style="left: 0px; width: 0px;" class="ps-scrollbar-x"></div></div><div style="top: 0px; height: 667px; right: 3px;" class="ps-scrollbar-y-rail"><div style="top: 0px; height: 401px;" class="ps-scrollbar-y"></div></div></ul>
+                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
+            </aside>
+            {% endblock sidebar %}
+			{% block content %}
+      
+			{% endblock content %}
+            {% block endmain %}
+            </div>
+            {% endblock endmain %}
+			<!-- jQuery && Materialize JavaScript -->
+			{% use "base/javascripts.twig" %}
+			{% block javascripts %}
+				{{ parent() }}
+	    {% endblock javascripts %}
+        <script>
+            $(document).ready(function(){ 
+                $(".sidebar-collapse").sideNav();
+            });
+        </script>
+    </body>
+  </html>

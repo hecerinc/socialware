@@ -2,7 +2,7 @@
 /*
 	Admin dashboard
 */
-$app->group('/admin', function() use ($app){ // Add authentication middleware
+$app->group('/admin', $authenticate($app, 'admin'), function() use ($app){ // Add authentication middleware
 	//GET
 	$app->get('/', function() use ($app){
 		$app->redirect($app->urlFor('admin_dashboard'));
