@@ -1,20 +1,20 @@
 <?php
-
-//GET route
-$app->get('/admin', $authenticate($app, 'guest'), function () use ($app) {
-	$data = array();
-	$data["user"] = $_SESSION["user"];
-	$app->render('admin.html.twig', $data);
-})->name('admin');
-
-//POST route
-
-//PUT route
-
-//DELETE route
-
-//OPTIONS route
-
-//PATCH route
+/*
+	Admin dashboard
+*/
+$app->group('/admin', function() use ($app){ // Add authentication middleware
+	//GET
+	$app->get('/', function() use ($app){
+		$app->redirect($app->urlFor('admin_dashboard'));
+	});
+	$app->get('/dashboard', function() use ($app){
+		$app->render('dashboard.html.twig', ['isAdmin' => true]);
+	})->name('admin_dashboard');
+	//POST
+	//PUT
+	//DELETE
+	//OPTIONS
+	//PATCH
+});
 
 ?>
