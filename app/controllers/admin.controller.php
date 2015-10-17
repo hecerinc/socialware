@@ -28,7 +28,7 @@ $app->group('/admin', $authenticate($app, 'admin'), function() use ($app){ // Ad
 $app->group('/admin/users', $authenticate($app, 'admin'), function() use ($app){ // Add authentication middleware
 	//GET
 	$app->get('/', function() use ($app){
-		//TODO Get all users
+		$app->render('admin.users.html.twig', ['isAdmin' => true]);
 	})->name('admin_all_users');
 	
 	$app->get('/new', function() use ($app){
