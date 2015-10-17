@@ -28,6 +28,8 @@
 				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
 				{% if not user %}
 					<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
+				{% else %}
+    			<li><a href="{{ urlFor('admin_dashboard') }}"><i class="material-icons">dashboard</i></a></li>
 				{% endif %}
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
@@ -37,6 +39,8 @@
 				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
 				{% if not user %}
 					<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
+				{% else %}
+    			<li><a href="{{ urlFor('admin_dashboard') }}"><i class="material-icons">dashboard</i></a></li>
 				{% endif %}
 			</ul>
 		</div>
