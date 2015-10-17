@@ -7,7 +7,7 @@ $app->get("/logout", function () use ($app) {
 	unset($_SESSION['user']);
 	$app->view()->setData('user', null);
 	$app->redirect($env['rootUri']);
-});
+})->name('logout');
 
 $app->get("/login", function () use ($app) {
 	if (isset($_SESSION['urlRedirect'])) {

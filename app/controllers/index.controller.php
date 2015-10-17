@@ -21,6 +21,16 @@ $app->get('/videos', function() use($app){
 	$app->render('videos.html.twig');
 })->name('videos');
 
+$app->get('/init', function() use($app){
+	$user = R::dispense("user");
+	$user->username = "admin";
+	$user->role = "admin";
+	$user->password = md5("123456");
+	R::store($user);
+	
+	echo "DONE!";
+})->name('init');
+
 //POST route
 
 //PUT route

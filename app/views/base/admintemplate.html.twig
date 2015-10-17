@@ -20,11 +20,11 @@
                 <div class="nav-wrapper">                    
                     
                     <ul class="left">                      
-                      <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="Eventos"></a> <span class="logo-text">Materialize</span></h1></li>
+                      <li><h1 class="logo-wrapper"><a href="{{ urlFor('admin_dashboard') }}" class="brand-logo darken-1"><img src="/web/img/materialize-logo.png" alt="AMA"></a> <span class="logo-text">Materialize</span></h1></li>
                     </ul>
                     <div class="header-search-wrapper hide-on-med-and-down">
                         <i class="mdi-action-search active"></i>
-                        <input name="Search" class="header-search-input z-depth-2" placeholder="Explorar Eventos" type="text">
+                        <input name="Search" class="header-search-input z-depth-2" placeholder="Busqueda" type="text">
                     </div>
                     <ul class="right hide-on-med-and-down">                        
                         <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-navigation-apps"></i></a>
@@ -54,16 +54,12 @@
                             <div class="col col s8 m8 l8">
                                 
                                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">John Doe<i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
-                                    <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                                    <li><a href="{{ urlFor('admin_profile') }}"><i class="mdi-action-face-unlock"></i> Profile</a>
                                     </li>
-                                    <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
-                                    </li>
-                                    <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+                                    <li><a href="{{ urlFor('admin_settings') }}"><i class="mdi-action-settings"></i> Settings</a>
                                     </li>
                                     <li class="divider"></li>
-                                    <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
-                                    </li>
-                                    <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                    <li><a href="{{ urlFor('logout') }}"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
                                     </li>
                                 </ul>
                                 <p class="user-roal">Administrator</p>
