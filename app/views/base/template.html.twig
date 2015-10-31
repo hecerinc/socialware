@@ -28,8 +28,14 @@
 				<li><a href="{{ urlFor('videos') }}">Videos</a></li>
 				{% if not user %}
 					<li><a href="{{ urlFor('login') }}">Iniciar sesi&oacute;n</a></li>
-				{% else %}
+				{% elseif user.role == "admin" %}
     			<li><a href="{{ urlFor('admin_dashboard') }}"><i class="material-icons">dashboard</i></a></li>
+				{% elseif user.role == "student" %}
+	    		<li><a href="{{ urlFor('student_dashboard') }}"><i class="material-icons">dashboard</i></a></li>
+				{% elseif user.role == "parents" %}
+	    		<li><a href="{{ urlFor('parents_dashboard') }}"><i class="material-icons">dashboard</i></a></li>
+				{% elseif user.role == "tutors" %}
+	    		<li><a href="{{ urlFor('tutors_dashboard') }}"><i class="material-icons">dashboard</i></a></li>
 				{% endif %}
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
