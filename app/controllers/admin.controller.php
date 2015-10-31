@@ -28,7 +28,8 @@ $app->group('/admin', $authenticate($app, 'admin'), function() use ($app){ // Ad
 $app->group('/admin/users', $authenticate($app, 'admin'), function() use ($app){ // Add authentication middleware
 	//GET
 	$app->get('/', function() use ($app){
-		$app->render('admin.users.html.twig', ['isAdmin' => true]);
+		$users = R::find('user', 'role != "student"');
+		$app->render('admin.users.html.twig', ['isAdmin' => true, 'data' => $users]);
 	})->name('admin_all_users');
 	
 	$app->get('/new', function() use ($app){

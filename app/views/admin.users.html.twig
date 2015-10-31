@@ -1,6 +1,42 @@
 {% extends "base/admintemplate.html.twig" %}
 
 {% block content %}
+<div class="row">
+	{% for user in data %}
+	<div class="col s12 m6 l4">
+		<div id="profile-page-header" class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="/web/img/user-profile-bg.jpg" alt="user background">                    
+                </div>
+                <!--<figure class="card-profile-image">
+                    <img src="/web/img/avatar.jpg" alt="profile image" class="circle z-depth-2 responsive-img activator">
+                </figure>-->
+                <div class="card-content">
+                  <div class="row">                    
+                    <div class="col s6">                        
+                        <h4 class="card-title grey-text text-darken-4">{{ user.username }}</h4>
+                        <p class="medium-small grey-text">{{ user.role }}</p>                        
+                    </div>               
+                    <div class="col s1 offset-s5 right-align">
+                      <a class="btn-floating activator waves-effect waves-light darken-2 right">
+                          <i class="mdi-action-perm-identity"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: none; transform: translateY(0px);" class="card-reveal">
+                    <p>
+                      <span class="card-title grey-text text-darken-4">{{ user.username }} <i class="mdi-navigation-close right"></i></span>
+                      <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> {{ user.role }}</span>
+                    </p>                    
+                    <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i> +1 (612) 222 8989</p>
+                    <p><i class="mdi-communication-email cyan-text text-darken-2"></i> mail@domain.com</p>
+                    <p><i class="mdi-social-cake cyan-text text-darken-2"></i> 18th June 1990</p>
+                </div>
+            </div>
+	</div>
+	{% endfor %}
+</div>
 {% endblock content %}
 {% block footer %}
 {% endblock footer %}

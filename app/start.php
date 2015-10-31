@@ -68,8 +68,8 @@ $authenticate = function ($app, $role) {
 $app->hook('slim.before.dispatch', function() use ($app) {
 	$user = array();
 	if (isset($_SESSION['user'])) {
-		$user['email']=$_SESSION['user'];
-		$user['nombre']=$_SESSION['nombre'];
+		$user['user']=$_SESSION['user'];
+		$user['role']=$_SESSION['role'];
 	}
 	$app->view()->setData('user', $user);
 });
