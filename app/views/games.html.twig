@@ -1,0 +1,38 @@
+{% extends "base/template.html.twig" %}
+
+{% block content %}
+
+{% include 'base/components/flash.twig' %}
+
+<div class="container">
+	<h1 class="mt40	mb50">Juegos</h1>
+	<div class="row">
+		{% for i in range(1, 9) %}
+
+		<div class="col l4 m6 s12 video">
+			<figure class="video-entry blue text-center valign-wrapper img-bg" {#data-bg="web/img/inactive_sim.png" #}>
+				<i class="valign medium material-icons u-full-width">play_circle_filled</i>
+				<div class="clear"></div>
+			</figure>
+			<p class="caption white-text">Title of game</p>
+		</div>
+
+		{% endfor %}
+	</div>
+</div>
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+		// Backgrounds
+		jQuery('.img-bg').each(function(){
+			if(jQuery(this).attr('data-bg'))
+				jQuery(this).css({
+					'background-image':'url(' + jQuery(this).attr('data-bg') + ')',
+					'background-repeat': 'no-repeat',
+					'background-size' : '100% 100%'
+				});
+		});
+	</script>
+{% endblock javascripts %}
+
+{% endblock content %}
