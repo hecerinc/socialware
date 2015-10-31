@@ -60,6 +60,12 @@ $authenticate = function ($app, $role) {
 				$app->redirect($env['rootUri']);
 			}
 		}
+		else if($role == 'student'){
+			if($_SESSION['role']!='student'){
+				$app->flash('danger', 'Necesitas iniciar sesion como student.');
+				$app->redirect($env['rootUri']);
+			}
+		}
 	};
 };
 
