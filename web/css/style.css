@@ -163,7 +163,7 @@ li.li-hover:hover{
   position: absolute;
   left: 48%;
   top: 46%;
-  background: url(../images/user-bg-2.jpg) no-repeat center center;  
+  background: url(../img/user-bg-2.jpg) no-repeat center center;  
   z-index: 1001;
 }
 #loader:before {
@@ -582,7 +582,7 @@ ul.side-nav.leftside-navigation:hover {
   /*overflow-y:hidden;*/
 }
 ul.side-nav.leftside-navigation li.user-details {
-  background: url(/web/img/user-bg.jpg) no-repeat center center;
+  background: url(../img/user-bg.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

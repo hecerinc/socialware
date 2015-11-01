@@ -85,10 +85,9 @@ $app->hook('slim.before.dispatch', function() use ($app) {
  */
 $resourceUri = $_SERVER['REQUEST_URI'];
 //URI del sitio desde el root del dominio
-$rootUri = '/';
+$rootUri = (($n = basename(dirname($_SERVER['SCRIPT_NAME']))) ? "/$n/" : "/");
 //URI de los contenidos publicos
 $assetUri = $rootUri.'web/';
-
 $env = $app->environment();
 $env['rootUri'] = $rootUri;
 
@@ -100,8 +99,6 @@ $app->view()->appendData(
 		'resourceUri' => $resourceUri
 	)
 );
-
-
 // Import the routers
 foreach(glob(ROOT . 'app/controllers/*.php') as $router) {
 	include $router;
@@ -120,10 +117,26 @@ foreach(glob(ROOT . 'app/controllers/*.php') as $router) {
 $view = $app->view();
 $view->parserOptions = array(
 	'debug' => true,
-	'cache' => ROOT . 'app/storage/cache/twig',
+	// 'cache' => ROOT . 'app/storage/cache/twig',
+	'cache' => false, // TODO change this
 	'auto_reload' => true,
+	'autoescape' => false
 	//'strict_variables' => true
 );
+
+// Some custom functions for the views
+// vendor\Slim\Extras\Views\Twig.php
+$twigenv = $app->view->getEnvironment();
+$twigenv->autoescape = false;
+$img = new Twig_SimpleFunction('img', function($url = "", $params = array()) use($rootUri){
+	if($url[0] == '/')	$url = substr($url, 1);
+	$img_str = '<img src="'.$rootUri."web/img/".$url.'"';
+	foreach ($params as $attr => $value)
+		$img_str .= " $attr =\"$value\"";
+	$img_str .= " />";
+	return $img_str;
+});
+$twigenv->addFunction($img);
 
 
 // $view->parserExtensions = array(

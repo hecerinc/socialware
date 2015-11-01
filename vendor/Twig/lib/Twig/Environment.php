@@ -92,7 +92,7 @@ class Twig_Environment
             'charset'             => 'UTF-8',
             'base_template_class' => 'Twig_Template',
             'strict_variables'    => false,
-            'autoescape'          => 'html',
+            'autoescape'          => false,
             'cache'               => false,
             'auto_reload'         => null,
             'optimizations'       => -1,
