@@ -58,7 +58,7 @@ $app->post("/login", function () use ($app) {
 			$app->redirect($env['rootUri'].substr($tmp,1));
 		}
 
-		$app->redirect("/admin");
+		$app->redirect($app->urlFor('admin'));
 	}
 });
 
